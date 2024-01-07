@@ -211,7 +211,7 @@
                         <div class="inneroutputcode" id="inneroutputcode"><textarea name=""
                                 id="codecontainer"></textarea></div>
                         <p style="color: white;">Put this code in your webpage</p>
-                        <button style="padding: 5px 10px;border-radius: 4px;">copy code</button>
+                        <button onclick="copyCode()" style="padding: 5px 10px;border-radius: 4px;">copy code</button>
                     </div>
             </div>
         </div>
@@ -277,6 +277,26 @@
     <script src="/assets/scripts/giveoutputcode.js">
 
     </script>
+    <script>
+    function copyCode() {
+        var codeContainer = document.getElementById('codecontainer');
+        codeContainer.select();
+        document.execCommand('copy');
+
+        var confirmationMessage = document.createElement('div');
+        confirmationMessage.innerHTML = 'Code copied!';
+        confirmationMessage.style.backgroundColor = 'green';
+        confirmationMessage.style.color = 'white';
+        confirmationMessage.style.padding = '5px';
+        confirmationMessage.style.borderRadius = '4px';
+        document.body.appendChild(confirmationMessage);
+
+        setTimeout(function() {
+            document.body.removeChild(confirmationMessage);
+        }, 5000);
+    }
+    </script>
+    
 
 
 
